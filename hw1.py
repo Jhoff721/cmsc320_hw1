@@ -71,3 +71,20 @@ new_df.insert(1, 'date', date)
 
 # ==========================================================================
 # Part 2
+
+# Group data by country showing date, country, name, vei
+# Sort vei from highest to lowest
+from IPython.display import display
+countryGroup = new_df.sort_values(['vei'], ascending=False).groupby('country')[['date', 'country', 'name', 'vei']]
+
+#for group in countryGroup:
+#    display(group)
+
+# print out max vei for each unique country
+maxVei = new_df.groupby('country')['vei'].max()
+
+# For loop has the index (which is country due to the groupby) and value
+#for country, max in maxVei.items():
+#    print(f"Country: {country}, Highest VEI: {max}")
+
+# 
